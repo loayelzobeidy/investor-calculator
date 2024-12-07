@@ -11,7 +11,7 @@ function UserInput({
   handleDurationChange,
 }) {
   return (
-    <div className="container mt-5 p-4 bg-light rounded shadow">
+    <div className="container mt-5 p-4 bg-light rounded shadow user-input">
     <h2 className="text-center text-primary mb-4">Investment Details</h2>
     <div className="row g-3">
       <div className="col-md-6">

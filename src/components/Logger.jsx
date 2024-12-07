@@ -7,7 +7,7 @@ function Logger({ annualData }) {
   });
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 result">
   
       <table className="table table-striped table-hover table-bordered align-middle shadow-sm">
         <thead className="bg-primary text-white text-center">
