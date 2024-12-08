@@ -1,17 +1,43 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  setInitialValue,
+  setAnnualValue,
+  setExpectedValue,
+  setDurationValue
+} from './../investimentSlice';
 
-function UserInput({
-  initialInvestiment,
-  handleIntialChange,
-  annualInvesiment,
-  handleAnnualChange,
-  expectedReturn,
-  handleExpectedChange,
-  duration,
-  handleDurationChange,
-}) {
+function UserInput() {
+  const dispatch = useDispatch();
+
+  // Access state values from Redux
+  const {
+    initialValue,
+    annualValue,
+    expectedValue,
+    durationValue
+  } = useSelector((state) => state.investment);
+
+
+  // Handlers to dispatch actions
+  const handleInitialValueChange = (e) => {
+    dispatch(setInitialValue(Number(e.target.value)));
+  };
+
+  const handleAnnualValueChange = (e) => {
+    dispatch(setAnnualValue(Number(e.target.value)));
+  };
+
+  const handleExpectedValueChange = (e) => {
+    dispatch(setExpectedValue(Number(e.target.value)));
+  };
+
+  const handleDurationValueChange = (e) => {
+    dispatch(setDurationValue(Number(e.target.value)));
+  };
+
   return (
-    <div className="container mt-5 p-4 bg-light rounded shadow user-input">
+    <div className="container mt-5 p-4 bg-light rounded shadow" id="user-input">
     <h2 className="text-center text-primary mb-4">Investment Details</h2>
     <div className="row g-3">
       <div className="col-md-6">
@@ -23,8 +49,8 @@ function UserInput({
           className="form-control border-primary"
           id="input1"
           placeholder="Enter amount"
-          value={initialInvestiment}
-          onChange={handleIntialChange}
+          value={initialValue}
+          onChange={handleInitialValueChange}
         />
       </div>
       <div className="col-md-6">
@@ -36,8 +62,8 @@ function UserInput({
           className="form-control border-primary"
           id="input2"
           placeholder="Enter amount"
-          value={annualInvesiment}
-          onChange={handleAnnualChange}
+          value={annualValue}
+          onChange={handleAnnualValueChange}
         />
       </div>
       <div className="col-md-6">
@@ -49,8 +75,8 @@ function UserInput({
           className="form-control border-primary"
           id="input3"
           placeholder="Enter percentage"
-          value={expectedReturn}
-          onChange={handleExpectedChange}
+          value={expectedValue}
+          onChange={handleExpectedValueChange}
         />
       </div>
       <div className="col-md-6">
@@ -62,8 +88,8 @@ function UserInput({
           className="form-control border-primary"
           id="input4"
           placeholder="Enter years"
-          value={duration}
-          onChange={handleDurationChange}
+          value={durationValue}
+          onChange={handleDurationValueChange}
         />
       </div>
     </div>

@@ -3,7 +3,7 @@ import logo from "./../assets/investment-calculator-logo.png";
 function Header(){
 return (
     <>
-    <nav className="navbar bg-light shadow-sm py-3">
+    <nav className="navbar bg-light shadow-sm py-3 header">
     <div className="container d-flex align-items-center justify-content-between">
       <a className="navbar-brand d-flex align-items-center" href="#">
         <img

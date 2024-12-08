@@ -51,6 +51,7 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 0.5rem;
   font-weight: bold;
+  color: white;
   text-transform: uppercase;
 }
 
@@ -60,6 +61,7 @@ body {
   border: 1px solid #76c0ae;
   border-radius: 0.25rem;
   background-color: transparent;
+  color: white;
   color: #c2e9e0;
   font-size: 1rem;
 }

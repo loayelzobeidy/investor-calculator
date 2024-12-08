@@ -1,5 +1,31 @@
-function Logger({ annualData }) {
 
+import { useSelector} from 'react-redux';
+import { useEffect } from 'react';
+import { calculateInvestmentResults } from "../util/investment";
+
+
+let annualData = []
+function Logger({  }) {
+
+ 
+  // Access state values from Redux
+  const {
+    initialValue,
+    annualValue,
+    expectedValue,
+    durationValue
+  } = useSelector((state) => state.investment);
+  
+  useEffect(() => {
+
+    annualData =   calculateInvestmentResults({
+        initialInvestment: initialValue,
+        annualInvestment: annualValue,
+        expectedReturn: expectedValue,
+        duration: durationValue,
+      })
+  }, [initialValue, annualValue, expectedValue, durationValue]);
+  
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -7,7 +33,7 @@ function Logger({ annualData }) {
   });
 
   return (
-    <div className="container mt-4 result">
+    <div className="container mt-4" id="result">
   
       <table className="table table-striped table-hover table-bordered align-middle shadow-sm">
         <thead className="bg-primary text-white text-center">
